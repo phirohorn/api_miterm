@@ -1,0 +1,46 @@
+HELP.md
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+.claude
+
+### Postgres ###
+# Never commit the live Postgres data directory. The DB is a Docker named
+# volume (see postgres/docker-compose.yml) and is rebuilt from Flyway
+# migrations on first start. Committing it shipped a half-migrated database
+# that broke teammates with cascading Flyway failures (V4/V6/... already exists).
+postgres/data/
+.env

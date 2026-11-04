@@ -1,0 +1,18 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: product_postgres
+    restart: unless-stopped
+    ports:
+      - "5448:5432"
+    environment:
+      POSTGRES_DB: product
+      POSTGRES_USER: employee
+      POSTGRES_PASSWORD: 22334455
+    volumes:
+      # POSTGRES_DB is only created when this volume is empty (first start).
+      # The API creates the tables itself on startup.
+      - product_pgdata:/var/lib/postgresql/data
+
+volumes:
+  product_pgdata:

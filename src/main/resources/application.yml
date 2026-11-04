@@ -1,0 +1,34 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5448/product}
+    username: employee
+    password: 22334455
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      # Hibernate creates/updates the tables from the entity classes.
+      ddl-auto: update
+    show-sql: false
+    open-in-view: false
+
+server:
+  port: 33033
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:ebe8910a-08c0-11ed-861d-0242ac120002}
+    # Access token: 1 hour. Refresh token: 7 days.
+    expiration-ms: 3600000
+    refresh-expiration-ms: 604800000
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    operationsSorter: method
+    tagsSorter: alpha
+  api-docs:
+    path: /v3/api-docs
